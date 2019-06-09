@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int n,i,count=1,j;
+	cin>>n;
+	for(i=0;i<n;i++,count+=2)
+	{
+	    int space=n-i-2;
+	    while(space>=0)
+	    {
+	        cout<<" ";
+	        space--;
+	    }
+	    for(j=0;j<count;j++)
+	    cout<<"*";
+	    cout<<"\n";
+	}
+	return 0;
+}
