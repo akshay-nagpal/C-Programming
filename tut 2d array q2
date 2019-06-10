@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int n,i,j,sum1=0,sum2=0,sum3=0,f=0;
+	//cout<<"enter the size of square matrix\n";
+	cin>>n;
+	int a[n][n],b[n];
+	for(i=0;i<n;i++)
+	for(j=0;j<n;j++)
+	{
+	    cin>>a[i][j];
+	}
+    for(i=0;i<n;i++)
+    { 
+        f=0;
+    for(j=0,sum1=0;j<n;j++)
+    {
+        sum1=sum1+a[i][j];
+    }
+    if(i==0) sum2=sum1;
+      if(sum1!=sum2)
+        {
+            cout<<"not a magic matrix";
+            f=1;
+            break;
+        }
+      sum2=sum1;
+      if(f==1) break;
+    }
+    if(f!=1)
+    {
+    for(i=0;i<n;i++)
+    { 
+        f=0;
+    for(j=0,sum1=0;j<n;j++)
+    {
+        sum1=sum1+a[j][i];
+    }
+    if(i==0) sum2=sum1;
+      if(sum1!=sum2)
+        {
+            cout<<"not a magic matrix";
+            f=1;
+            break;
+        }
+      sum2=sum1;
+      if(f==1) break;
+    }
+    for(i=0,sum2=0;i<n;i++)
+    {
+        sum2=sum2+a[i][i];
+        sum3=sum3+a[n-1-i][i];
+    }
+    if(sum1==sum2&&sum2==sum3)
+    {
+        cout<<"its magic its magic... matrix\n";
+    }
+    }
+	return 0;
+}
