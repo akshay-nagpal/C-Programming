@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int n,m,i,j,max,count=0,index=0;
+	//cout<<"enter the size of square matrix\n";
+	cin>>n>>m;
+	int a[m][n],b[n];
+	for(i=0;i<n;i++)
+	for(j=0;j<m;j++)
+	{
+	    cin>>a[i][j];
+	}
+    for(i=0,index=0,max=0;i<m;i++)
+    {
+        for(j=0,count=0;j<n;j++)
+        {
+            if(a[i][j]==1)
+            {
+                count++;
+            }
+            else count=0;
+            if(max<count) {
+                   max=count;
+                   index=i;}
+           
+        }
+        // cout<<"max in btw="<<max<<"\n";
+    }
+    cout<<"index="<<index<<" max no of 1s are="<<max;
+  
+	return 0;
+}
