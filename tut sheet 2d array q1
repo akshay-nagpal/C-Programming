@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+int swap(int *a,int *b)
+{
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
+}
+
+int main() {
+	// your code goes here
+	int n,i,j;
+	cout<<"enter the size of square matrix\n";
+	cin>>n;
+	int a[n][n],b[n];
+	for(i=0;i<n;i++)
+	for(j=0;j<n;j++)
+	{
+	    cin>>a[i][j];
+	}
+	for(i=0;i<n;i++)
+	for(j=i+1;j<n;j++)
+	{
+	    swap(&a[i][j],&a[j][i]);
+	}
+	for(i=0;i<n;i++)
+	for(j=0;j<n;j++)
+	{
+	    cout<<a[i][j]<<"\n";
+	}
+	return 0;
+}
