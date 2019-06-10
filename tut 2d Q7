@@ -1,0 +1,40 @@
+#include <iostream>
+
+using namespace std;
+int power(int a,int b)
+{    
+    int val=1;
+    while(b!=0)
+    {
+        val=val*a;
+        b--;
+    }
+    return val;
+}
+int main() {
+	// your code goes here
+	int n,m,i,j,max=0,min=0,val=0,ind1=0,ind2=0;
+	//cout<<"enter the size of square matrix\n";
+	cin>>m>>n;
+	int a[m][n];
+	for(i=0;i<m;i++)
+	for(j=0;j<n;j++)
+	{
+	    cin>>a[i][j];
+	}
+    for(i=0,max=0,min=32767;i<m;i++)
+    {
+        for(j=0,val=0;j<n;j++)
+        {
+            if(a[i][j]==1)
+            val=val+power(2,n-j-1);
+            //cout<<"value="<<val<<"\n";
+        }
+        if(max<val) {max=val;ind1=i;}
+        if(min>val) {min=val;ind2=i;}
+    }
+    cout<<max<<" index="<<ind1
+    <<"\n"<<min<<" index="<<ind2<<
+    "\n";
+	return 0;
+}
