@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int rows,cols,i,n,j,k;
+    cin>>rows>>cols;
+    for(i=0;i<cols;i++)
+    cout<<"*";
+    cout<<"\n";
+    for(i=0,j=1;i<rows-2;i++,j++)
+    {
+        k=j;
+        n=cols-2;
+        while(k--)
+        cout<<" ";
+        cout<<"*";
+        while(n--)
+        cout<<" ";
+        cout<<"*\n";
+    }
+    while(j--)
+    cout<<" ";
+    while(cols--) cout<<"*";
+    
+}
