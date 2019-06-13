@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n,i,j;
+    cin>>n;
+    int count=n;
+    for(i=1;i<=n;i++)
+    {
+        j=i;
+        while(j--)
+        {
+            cout<<count;
+        }
+        count++;
+        cout<<"\n";
+    }
+    while(i--)
+    cout<<count;
+    cout<<"\n";
+    count--;
+    for(i=n;i>=0;i--)
+    {
+        j=i;
+        while(j--)
+        {
+            cout<<count;
+        }
+        count--;
+        cout<<"\n";
+    }
+}
