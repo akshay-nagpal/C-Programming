@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin>>n;
+    int i,j=n-2;
+    for(i=1;i<n;i++)
+    {
+        j=n-2;
+        cout<<i;
+        while(j--) cout<<" ";
+        cout<<n+1-i<<"\n";
+    }
+    for(i=n;i>=1;i--)
+    {
+        cout<<i;
+    }
+    cout<<"\n";
+    for(i=n-1;i>=1;i--)
+    {
+        j=n-2;
+        cout<<i;
+        while(j--) cout<<" ";
+        cout<<n+1-i<<"\n";
+    }
+}
