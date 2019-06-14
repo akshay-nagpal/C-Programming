@@ -1,0 +1,122 @@
+#include <iostream>
+using namespace std;
+class list1{
+    public:
+    int data1;
+    list1 *next1;
+};
+class list2{
+    public:
+    int data2;
+    list2 *next2;
+};
+list1 *head1=NULL;
+list2 *head2=NULL;
+void insert1(int data)
+{
+    list1 *temp=new list1;
+    temp->data1=data;
+    temp->next1=NULL;
+    if(head1==NULL)
+    {
+        head1=temp;
+        return;
+    }
+    else
+    {
+        list1 *tmp=head1;
+        while(tmp->next1!=NULL)
+        {
+            tmp=tmp->next1;
+        }
+        tmp->next1=temp;
+    }
+}
+void insert2(int data)
+{
+    list2 *temp=new list2;
+    temp->data2=data;
+    temp->next2=NULL;
+    if(head2==NULL)
+    {
+        head2=temp;
+        return;
+    }
+    else
+    {
+        list2 *tmp=head2;
+        while(tmp->next2!=NULL)
+        {
+            tmp=tmp->next2;
+        }
+        tmp->next2=temp;
+    }
+}
+void showlist(int listno)
+{
+    if(listno==1)
+    {
+        list1 *tmp=head1;
+        if(head1==NULL)
+        {
+            cout<<"list1 is empty\n";return;
+        }
+        else
+        {
+            //cout<<"values of list1 are\n";
+            while(tmp->next1!=NULL)
+            {
+                cout<<tmp->data1<<" ";
+                tmp=tmp->next1;
+            }
+            cout<<tmp->data1<<"\n";
+        }
+    }
+    else
+    {
+        list2 *tmp=head2;
+        if(head2==NULL)
+        {
+            cout<<"list2 is empty\n";return;
+        }
+        else
+        {
+            //cout<<"values of list2 are\n";
+            while(tmp->next2!=NULL)
+            {
+                 cout<<tmp->data2<<" ";
+                 tmp=tmp->next2;
+            }
+            cout<<tmp->data2<<"\n";
+        } 
+    }
+}
+void find_max()
+{
+    list1 *tmp1=head1;
+    list2 *tmp2=head2;
+    while(tmp1!=NULL)
+    {
+        if((tmp1->data1)>(tmp2->data2))
+        tmp2->data2=tmp1->data1;
+        tmp1=tmp1->next1;
+        tmp2=tmp2->next2;
+    }
+}
+int main()
+{
+    int n,i,val;
+    cin>>n; //no of nodes
+    for(i=0;i<n;i++)
+    {
+        cin>>val;
+        insert1(val); //inserting into list1
+    }
+    for(i=0;i<n;i++)
+    {
+        cin>>val;
+        insert2(val); //inserting into list2
+    }
+    find_max();
+    showlist(2);
+}
