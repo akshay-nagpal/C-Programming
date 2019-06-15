@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+class list{
+    public:
+    int data;
+    list *next;
+};
+
+list *head=NULL;
+void insert(int data)
+{
+    list *temp=new list;
+    temp->data=data;
+    temp->next=NULL;
+    if(head==NULL)
+    {
+        head=temp;
+        return;
+    }
+    else
+    {
+        list *tmp=head;
+        while(tmp->next!=NULL)
+        {
+            tmp=tmp->next;
+        }
+        tmp->next=temp;
+    }
+}
+int find_max()
+{
+    list *tmp=head;
+    int count;
+    while(tmp->next->next!=NULL)
+    {
+        if((tmp->data)>(tmp->next->data))
+        count=count+tmp->data;
+        tmp=tmp->next;
+    }
+    if(tmp->next->data>head->data)
+    count=count+tmp->next->data;
+    return count; 
+}
+int main()
+{
+    int n,i,val;
+    cin>>n; //no of nodes
+    for(i=0;i<n;i++)
+    {
+        cin>>val;
+        insert(val); //inserting into list1
+    }
+    cout<<find_max();
+}
