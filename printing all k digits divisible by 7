@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+void gs(char *s,int start,int end)
+{
+    if(start==end)
+    {
+        s[start]='\0';
+        int j=0,sum=0,k=1;
+        for(j=end-1;j>=0;j--,k=k*10)
+        {
+            sum=(s[j]-'0')*k+sum;
+        }
+        if(sum%7==0)
+        cout<<s<<endl;
+        return;
+    }
+    int i;
+    for(i=0;i<=9;i++)
+    {
+        s[start]='0'+i;
+        gs(s,start+1,end);
+    }
+}
+int main() {
+	// your code goes here
+	int n;
+	cin>>n;
+	char str[n+1];
+	gs(str,0,n);
+	return 0;
+}
