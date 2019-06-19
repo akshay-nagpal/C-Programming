@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+void gs(char *num,char *sym,int start,int end)
+{
+    if(start>=end)
+    {
+        cout<<num<<endl;
+        return;
+    }
+    int i;
+    for(i=0;i<end/2;i++)
+    {
+        num[start]=sym[i];
+        gs(num,sym,start+2,end);
+    }
+}
+int main() {
+	// your code goes here
+	int n,i;
+	cin>>n;
+	char a[n+n-1],sym[n];
+    for(i=0;i<n+n-1;i=i+2)
+    cin>>a[i];
+    cin>>sym;
+    a[n+n-1]=sym[n-1]='\0';
+	gs(a,sym,1,n+n-2);
+	return 0;
+}
