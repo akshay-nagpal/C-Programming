@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int n;
+	bool f=0;
+	cin>>n;
+	int size=sizeof(int)*8,i;
+	for(i=0;i<size;i=i+2)
+	{
+	    f=1;
+	    if((n^(1<<i))==0)
+	    {
+	        f=0;
+	        //cout<<(1<<i)<<endl;
+	        break;
+	    }
+	 }
+	if(f==0) cout<<"True";
+	else cout<<"False";
+	return 0;
+}
